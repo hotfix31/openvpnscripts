@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+﻿#! /bin/bash
 #
 # Script de creation d'un nouveau client sur un serveur OpenVPN
 # http://blog.nicolargo.com/2010/10/installation-dun-serveur-openvpn-sous-debianubuntu.html
