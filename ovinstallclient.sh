@@ -11,13 +11,13 @@ SERVER="94.23.10.52"
 
 # Test que le script est lance en root
 if [ $EUID -ne 0 ]; then
-  echo "Le script doit être lancé en root: # sudo $0 <nomduclient>" 1>&2
+  echo "Le script doit être lancé en root: # $0 <nomduclient>" 1>&2
   exit 1
 fi
 
 # Test parametre
 if [ $# -ne 1 ]; then
-  echo "Il faut saisir le nom du client: # sudo $0 <nomduclient>" 1>&2
+  echo "Il faut saisir le nom du client: # $0 <nomduclient>" 1>&2
   exit 1
 fi
 
