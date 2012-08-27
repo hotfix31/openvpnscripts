@@ -6,7 +6,7 @@
 #
 # Syntaxe: # ./ovinstallclient.sh <clienname>
 VERSION="0.1"
-SERVER="94.23.10.52"
+SERVER="0.0.0.0"
 
 # Test que le script est lance en root
 if [ $EUID -ne 0 ]; then
