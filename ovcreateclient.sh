@@ -6,7 +6,7 @@
 # Nicolargo - 10/2010
 # GPL
 #
-# Syntaxe: # sudo ./ovcreateclient.sh <nomduclient>
+# Syntaxe: # ./ovcreateclient.sh <nomduclient>
 VERSION="0.1"
 
 # Test que le script est lance en root
@@ -23,29 +23,31 @@ fi
 
 echo "---"
 echo "Creation du client OpenVPN: $1"
-echo "Entrer pour continuer ou CTRL-C pour annuler"
-read key
+#echo "Entrer pour continuer ou CTRL-C pour annuler"
+#read key
 
 cd /etc/openvpn/easy-rsa
 source vars
 ./build-key $1
 sudo mkdir /etc/openvpn/clientconf/$1
-sudo cp /etc/openvpn/ca.crt /etc/openvpn/ta.key keys/$1.crt keys/$1.key /etc/openvpn/clientconf/$1/
+sudo cp /etc/openvpn/keys/ca.crt /etc/openvpn/keys/ta.key keys/$1.crt keys/$1.key /etc/openvpn/clientconf/$1/
 
 cd /etc/openvpn/clientconf/$1
-cat >> client.conf << EOF
+cat >> $1.conf << EOF
 # Client
 client
 dev tun
 proto tcp-client
-remote `wget -qO- whatismyip.org` 443
+remote 00.00.00.00 443
 resolv-retry infinite
 cipher AES-256-CBC
+
 # Cles
 ca ca.crt
 cert $1.crt
 key $1.key
 tls-auth ta.key 1
+
 # Securite
 nobind
 persist-key
@@ -53,7 +55,7 @@ persist-tun
 comp-lzo
 verb 3
 EOF
-sudo cp client.conf client.ovpn
+sudo cp $1.conf $1.ovpn
 
 sudo zip $1.zip *.*
 
