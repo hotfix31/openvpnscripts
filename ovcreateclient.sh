@@ -4,19 +4,19 @@
 # http://blog.nicolargo.com/2010/10/installation-dun-serveur-openvpn-sous-debianubuntu.html
 #
 # Nicolargo - 10/2010
-# Frédéric Le Barzic - 08/2012
+# Frederic Le Barzic - 08/2012
 # GPL
 #
 # Syntaxe: # ./ovcreateclient.sh <nomduclient>
-VERSION="0.1"
+VERSION="0.1b"
 
 # Test que le script est lance en root
 if [ $EUID -ne 0 ]; then
-  echo "Le script doit être lancé en root: # $0 <nomduclient>" 1>&2
+  echo "Le script doit etre lance en root: # $0 <nomduclient>" 1>&2
   exit 1
 fi
 
-# Test parametre
+# Test parametre	
 if [ $# -ne 1 ]; then
   echo "Il faut saisir le nom du client: # $0 <nomduclient>" 1>&2
   exit 1
