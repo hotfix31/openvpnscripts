@@ -1,8 +1,8 @@
-#!/bin/bash
+ï»¿#!/bin/bash
 #
 # Script d'installation d'un nouveau client
 #
-# Frédéric Le Barzic- 08/2012
+# FrÃ©dÃ©ric Le Barzic- 08/2012
 # GPL
 #
 # Syntaxe: # ./ovinstallclient.sh <clienname>
@@ -11,10 +11,9 @@ SERVER="94.23.10.52"
 
 # Test que le script est lance en root
 if [ $EUID -ne 0 ]; then
-  echo "Le script doit être lancé en root: # sudo $0 <nomduclient>" 1>&2
+  echo "Le script doit Ãªtre lancÃ© en root: # sudo $0 <nomduclient>" 1>&2
   exit 1
 fi
-
 
 # Test parametre
 if [ $# -ne 1 ]; then
