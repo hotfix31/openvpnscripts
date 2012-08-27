@@ -1,5 +1,4 @@
-﻿#! /bin/bash
-#
+#!/bin/bash
 # Script d'installation d'un nouveau client
 #
 # Frédéric Le Barzic- 08/2012
